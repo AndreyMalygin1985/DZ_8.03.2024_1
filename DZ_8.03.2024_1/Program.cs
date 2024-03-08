@@ -5,6 +5,8 @@
 // с продуктом или товаром. Реализовать метод, позволяющий уменьшить цену на заданное число.
 // Для каждого из классов реализовать необходимые методы и поля.
 
+using static System.Console;
+
 class Money
 {
     public int Dollars { get; set; }
@@ -18,7 +20,7 @@ class Money
 
     public void DisplayAmount()
     {
-        Console.WriteLine($"{Dollars}.{Cents:D2} баксов");
+        WriteLine($"{Dollars}.{Cents} баксов");
     }
 }
 
@@ -53,8 +55,8 @@ class Product
 
     public void DisplayProductInfo()
     {
-        Console.WriteLine($"Продукт: {Name}");
-        Console.Write("Цена: ");
+        WriteLine($"Продукт: {Name}");
+        Write("Цена: ");
         Price.DisplayAmount();
     }
 }
@@ -66,12 +68,12 @@ class Program
         Money initialPrice = new Money(10, 50);
         Product product = new Product("Пример продукта", initialPrice);
 
-        Console.WriteLine("Исходная информация о продукте:");
+        WriteLine("Исходная информация о продукте:");
         product.DisplayProductInfo();
       
         product.DecreasePrice(2, 25);
 
-        Console.WriteLine("\nИнформация о продукте после снижения цен:");
+        WriteLine("\nИнформация о продукте после снижения цен:");
         product.DisplayProductInfo();
     }
 }
